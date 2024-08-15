@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Arte Flair - Convites Digitais</title>
+    <meta property="og:title" content="Arte Flair - Convites Digitais">
+    <meta property="og:description" content="Tenha o seu convite digital interativo e personalizado! Entre em contato (79) 99126-2428">
+    <meta property="og:image" content="https://wedding-animated-invites.github.io/template-wedding-invite/og-image.jpg">
+    <meta property="og:url" content="https://wedding-animated-invites.github.io/template-wedding-invite/">
+    <meta property="og:type" content="website">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #dee1d4;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body.active-link {
+            cursor: pointer;
+        }
+        
+        #video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            pointer-events: none;
+        }
+        
+        #video-container.fade-in {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+            z-index: 2;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1s ease, visibility 0s linear 1s;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        #image-container img {
+            cursor: pointer;
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        #image-container.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease, visibility 0s linear 1s;
+        }
+        
+        #redirect-link {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            background: transparent;
+        }
+        
+        #redirect-link.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-audio" preload="auto" src="https://wedding-animated-invites.github.io/template-wedding-invite/background-audio.mp3" type="audio/mp3" loop autoplay></audio>
+    
+    <div id="video-container">
+        <video id="invitation-video" preload="auto" playsinline muted>
+            <source src="https://wedding-animated-invites.github.io/template-wedding-invite/wedding-invitation-video.webm" type="video/webm">
+            <source src="https://wedding-animated-invites.github.io/template-wedding-invite/wedding-invitation-video.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div id="image-container">
+        <img src="https://wedding-animated-invites.github.io/template-wedding-invite/envelope-closed.png" alt="Click to start video" onclick="startVideo()">
+    </div>
+    
+    <a id="redirect-link" href="https://wa.me/5579991262428?text=Quero%20saber%20mais%20sobre%20os%20convites%20digitais%20interativos%20%3A)"></a>
+    
+    <script>
+        function startVideo() {
+            var imageContainer = document.getElementById('image-container');
+            var videoContainer = document.getElementById('video-container');
+            var video = document.getElementById('invitation-video');
+            var redirectLink = document.getElementById('redirect-link');
+            
+            // Apply fade-out effect to image container
+            imageContainer.classList.add('fade-out');
+            
+            // Fade in the video and play it
+            videoContainer.classList.add('fade-in');
+            video.play();
+
+            // Redirect to the URL after the video ends
+            video.onended = function() {
+                window.location.href = redirectLink.href;
+            };
+
+            // Hide the image container after the fade-out completes
+            imageContainer.addEventListener('transitionend', function() {
+                if (imageContainer.style.opacity == 0) {
+                    imageContainer.style.display = 'none';
+                }
+            });
+            
+            // Make the entire screen clickable exactly after 15 seconds
+            setTimeout(function() {
+                redirectLink.classList.add('active');
+                document.body.classList.add('active-link');
+            }, 15000);
+            
+            // Play the background audio
+            document.getElementById('background-audio').play();
+        }
+    </script>
+</body>
+</html>
