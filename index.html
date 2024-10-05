@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Arte Flair - Convites Digitais</title>
-    <meta property="og:title" content="Arte Flair - Convites Digitais">
-    <meta property="og:description" content="Tenha o seu convite digital interativo e personalizado! Entre em contato (71) 99709‑1624">
-    <meta property="og:image" content="https://wedding-animated-invites.github.io/template-wedding-invite/og-image.jpg">
-    <meta property="og:url" content="https://wedding-animated-invites.github.io/template-wedding-invite/">
+    <title>Benjamin 10 Anos</title>
+    <meta property="og:title" content="Benjamin 10 Anos">
+    <meta property="og:description" content="Ben 10 e sua turma convidam você para comemorar a festa de Benjamin!">
+    <meta property="og:image" content="https://arte-flair.github.io/benjamin-10-years/og-image.jpg">
+    <meta property="og:url" content="https://arte-flair.github.io/benjamin-10-years/">
     <meta property="og:type" content="website">
     <style>
         html, body {
@@ -19,7 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #dee1d4;
+            background-color: #5f9254;
             position: relative;
             -webkit-tap-highlight-color: transparent;
         }
@@ -100,20 +100,20 @@
     </style>
 </head>
 <body>
-    <audio id="background-audio" preload="auto" src="https://wedding-animated-invites.github.io/template-wedding-invite/background-audio.mp3" type="audio/mp3" loop autoplay></audio>
+    <audio id="background-audio" preload="auto" src="https://arte-flair.github.io/benjamin-10-years/background-audio.mp3" type="audio/mp3" loop autoplay></audio>
     
     <div id="video-container">
         <video id="invitation-video" preload="auto" playsinline muted>
-            <source src="https://wedding-animated-invites.github.io/template-wedding-invite/wedding-invitation-video.webm" type="video/webm">
-            <source src="https://wedding-animated-invites.github.io/template-wedding-invite/wedding-invitation-video.mp4" type="video/mp4">
+            <source src="https://arte-flair.github.io/benjamin-10-years/invitation-video.webm" type="video/webm">
+            <source src="https://arte-flair.github.io/benjamin-10-years/invitation-video.mp4" type="video/mp4">
         </video>
     </div>
     
     <div id="image-container">
-        <img src="https://wedding-animated-invites.github.io/template-wedding-invite/envelope-closed.png" alt="Click to start video" onclick="startVideo()">
+        <img src="https://arte-flair.github.io/benjamin-10-years/envelope-closed.png" alt="Click to start video" onclick="startVideo()">
     </div>
     
-    <a id="redirect-link" href="https://wa.me/5571997091624?text=Quero%20saber%20mais%20sobre%20os%20convites%20digitais%20interativos%20%3A)"></a>
+    <a id="redirect-link" href="https://wa.me/5571997091624?text=Ol%C3%A1,%20gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%20Benjamin%20%F0%9F%98%83"></a>
     
     <script>
         function startVideo() {
@@ -141,11 +141,11 @@
                 }
             });
             
-            // Make the entire screen clickable exactly after 15 seconds
+            // Make the entire screen clickable exactly after 1 seconds
             setTimeout(function() {
                 redirectLink.classList.add('active');
                 document.body.classList.add('active-link');
-            }, 15000);
+            }, 1000);
             
             // Play the background audio
             document.getElementById('background-audio').play();
